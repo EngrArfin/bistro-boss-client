@@ -2,27 +2,19 @@ const NavBar = () => {
   const navOptions = (
     <>
       <li>
-        <a>Item 1</a>
+        <a>Home</a>
       </li>
       <li>
-        <a>Parent</a>
-        <ul className="p-2">
-          <li>
-            <a>Submenu 1</a>
-          </li>
-          <li>
-            <a>Submenu 2</a>
-          </li>
-        </ul>
+        <a>Food</a>
       </li>
       <li>
-        <a>Item 3</a>
+        <a>Contract</a>
       </li>
     </>
   );
   return (
     <>
-      <div className="navbar bg-base-100">
+      <div className="navbar max-w-7xl fixed z-10 bg-opacity-30 bg-black text-white">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
