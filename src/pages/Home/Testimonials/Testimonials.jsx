@@ -13,7 +13,7 @@ import '@smastrom/react-rating/style.css'
 
 
 
-const Teastimonials = () => {
+const Testimonials = () => {
     const [reviews, setReviews] = useState([]);
     useEffect( () => {
         fetch('reviews.json')
@@ -25,7 +25,7 @@ const Teastimonials = () => {
     <div className="my-24">
       <SectionTitle
         subHeading="---What Our Clients Say---"
-        heading={"Teastimonials"}
+        heading={"Testimonials"}
       ></SectionTitle>
       <Swiper
         pagination={{
@@ -56,4 +56,4 @@ const Teastimonials = () => {
   );
 };
 
-export default Teastimonials;
+export default Testimonials;
