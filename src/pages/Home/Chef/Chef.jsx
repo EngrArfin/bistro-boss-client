@@ -1,4 +1,3 @@
-import React from "react";
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 import chefimg from "../../../assets/home/slide1.jpg";
 
