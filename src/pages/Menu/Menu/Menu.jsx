@@ -8,6 +8,7 @@ import saladImg from "../../../assets/menu/salad-bg.jpg";
 import useMenu from "../../../hooks/useMenu";
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 import MenuCategory from "../MenuCategory/MenuCategory";
+import { Helmet } from "react-helmet";
 
 const Menu = () => {
     const [menu] = useMenu();
@@ -18,9 +19,9 @@ const Menu = () => {
     const offered = menu.filter(item => item.category === 'offered');
     return (
         <div >
-            {/* <Helmet>
-                <title>Bistro MOss| Menu</title>
-            </Helmet> */}
+            <Helmet>
+                <title>Bistro Boss| Menu</title>
+            </Helmet>
             
             <Cover img={menuImg} title= "our menu"></Cover>
             {/* Main Cover */}
