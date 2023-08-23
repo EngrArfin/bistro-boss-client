@@ -6,7 +6,6 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Navigation, Pagination } from "swiper/modules";
-import { data } from "autoprefixer";
 import { Rating } from "@smastrom/react-rating";
 
 import '@smastrom/react-rating/style.css'
