@@ -1,6 +1,8 @@
 import { useContext } from "react";
+import {} from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../AuthProvider/AuthProvider";
+import { FaShoppingCart } from 'react-icons/fa';
 
 const NavBar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -14,23 +16,30 @@ const NavBar = () => {
   const navOptions = (
     <>
       <li>
-        <Link to="/">Home</Link>
+        <Link className="uppercase" to="/">Home</Link>
       </li>
       <li>
-        <Link to="/menu">Our Menu</Link>
+        <Link className="uppercase" to="/menu">Our Menu</Link>
       </li>
       <li>
-        <Link to="/order/salad">Order Food</Link>
+        <Link className="uppercase" to="/order/salad">Order Food</Link>
       </li>
+
+      <button className="btn">
+        <FaShoppingCart></FaShoppingCart>
+        <div className="badge badge-secondary">+00</div>
+      </button>
 
       {user ? (
         <>
-          <button onClick={handelLogOut} className="btn btn-ghost">LogOut</button>
+          <button onClick={handelLogOut} className="btn btn-ghost uppercase">
+            LogOut
+          </button>
         </>
       ) : (
         <>
           <li>
-            <Link to="/login">Login</Link>
+            <Link className="uppercase" to="/login">Login</Link>
           </li>
         </>
       )}
@@ -64,7 +73,7 @@ const NavBar = () => {
               {navOptions}
             </ul>
           </div>
-          <a className="btn btn-ghost normal-case text-xl">Food Restaurants</a>
+          <a className="btn btn-ghost uppercase  text-xl">Food Restaurants</a>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{navOptions}</ul>

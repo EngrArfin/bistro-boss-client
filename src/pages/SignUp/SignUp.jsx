@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import img from "../../assets/dashboard/image-5.jpg";
 import Swal from 'sweetalert2';
 
 const SignUp = () => {
@@ -41,7 +42,7 @@ const SignUp = () => {
       <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col lg:flex-row">
           <div className=" w-1/2 mr-12">
-            <img src="" alt="" />
+            <img src={img} alt="" />
           </div>
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
             <div className="card-body">
@@ -130,11 +131,7 @@ const SignUp = () => {
                       number and one special character.
                     </p>
                   )}
-                  <label className="label">
-                    <a href="#" className="label-text-alt link link-hover">
-                      Forgot password?
-                    </a>
-                  </label>
+                  
                 </div>
                 <div className="form-control mt-6">
                   <input
