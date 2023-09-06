@@ -10,6 +10,9 @@ import Menu from "../pages/Menu/Menu/Menu";
 import Order from "../pages/Order/Order/Order";
 import Login from "../pages/Login/Login";
 import SignUp from "../pages/SignUP/SignUp";
+import Secret from "../pages/Secret/Secret";
+import Dashboard from "../Layout/Dashboard";
+import MyCart from "../pages/Dashboard/MyCart/MyCart";
 
 
   export const router = createBrowserRouter([
@@ -30,6 +33,10 @@ import SignUp from "../pages/SignUP/SignUp";
           element: <Order></Order>
         },
         {
+          path: '/secret',
+          element: <Secret></Secret>
+        },
+        {
           path: '/login',
           element: <Login></Login>
         },
@@ -39,4 +46,15 @@ import SignUp from "../pages/SignUP/SignUp";
         }
     ]
   },
+  {
+    path: 'dashboard',
+    element: <Dashboard></Dashboard>,
+    children: [
+      {
+        path: 'mycart',
+        element: <MyCart></MyCart>
+      }
+      
+    ]
+  }
 ]);
