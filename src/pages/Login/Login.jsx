@@ -11,6 +11,7 @@ import {
 import { useContext } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { Helmet } from "react-helmet";
+import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 
 const Login = () => {
   const [disabled, setDisable] = useState(true);
@@ -42,7 +43,7 @@ const Login = () => {
         },
         hideClass: {
           popup: 'animate__animated animate__fadeOutUp'
-        }
+        } 
       });
       navigate(from, {replace: true});
     });
@@ -116,7 +117,7 @@ const Login = () => {
                 </div>
                 <div className="form-control mt-6">
                   <input
-                    disabled={false}
+                    disabled={disabled}
                     className="btn btn-primary"
                     type="submit"
                     value="Login"
@@ -127,11 +128,12 @@ const Login = () => {
                
                 <small>
                   New Here?
-                  <Link to="/signup" className="text-orange-300 ">
+                  <Link to="/signup" className="text-orange-500 m-2 ">
                     Create an Account
                   </Link>
                 </small>
               </p>
+              <SocialLogin></SocialLogin>
             </div>
           </div>
         </div>

@@ -6,15 +6,14 @@ import useCart from "../../hooks/useCart";
 
 const FoodCard = ({ item }) => {
   const { name, image, price, recipe, _id } = item;
-
   const {user} = useContext(AuthContext);
   const [, refetch] = useCart();
-
   const navigate = useNavigate();
   const location = useLocation();
 
+  
   const handleAddToCart = item => {
-    console.log(item);
+      console.log(item);
     if(user && user.email){
 
       const cartItem = {menuItemId: _id, name, image, price,  email: user.email}
@@ -51,9 +50,9 @@ const FoodCard = ({ item }) => {
         confirmButtonText: "Login now!",
       }).then((result) => {
         if (result.isConfirmed) {
-          navigate("/login", { state: { from: location } });
+          navigate('/login', { state: { from: location } });
         }
-      });
+      })
     }
 
   }
@@ -70,7 +69,7 @@ const FoodCard = ({ item }) => {
           <div className="card-actions justify-end">
             <button onClick={()=>handleAddToCart(item)} className="btn btn-outline border-0 border-b-4 mt-4">
               ADD TO CART
-            </button>
+            </button>  
           </div>
         </div>
       </div>
