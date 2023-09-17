@@ -111,10 +111,10 @@ const SignUp = () => {
                                 </label>
                             </div>
                             <div className="form-control mt-6">
-                                <input className="btn btn-primary" type="submit" value="Sign Up" />
+                                <input className="text-white bg-gradient-to-r from-cyan-400 via-cyan-900 to-cyan-400 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2" type="submit" value="Sign Up" />
                             </div>
                         </form>
-                        <p><small>Already have an account <Link to="/login">Login</Link></small></p>
+                        <p><small className="m-8">Already have an account <Link to="/login" className="text-orange-500 m-2 ">Login</Link></small></p>
                         <SocialLogin></SocialLogin>
                     </div>
                 </div>
