@@ -2,8 +2,7 @@ import {
     createBrowserRouter,
     RouterProvider,
     
-  } from "react-router-dom";
-  
+  } from "react-router-dom";  
 import Main from "../Layout/Main";
 import Home from "../pages/Home/Home/Home";
 import Menu from "../pages/Menu/Menu/Menu";
@@ -12,9 +11,14 @@ import Login from "../pages/Login/Login";
 import Secret from "../pages/Secret/Secret";
 import Dashboard from "../Layout/Dashboard";
 import MyCart from "../pages/Dashboard/MyCart/MyCart";
-import PrivateRoute from "../PrivateRoute/PrivateRoute";
+//import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import SignUp from "../pages/SignUp/SignUp";
 import AllUsers from "../pages/Dashboard/AllUsers/AllUsers";
+import AddItem from "../pages/Dashboard/AddItem/AddItem";
+import ManageItems from "../pages/Dashboard/ManageItems/ManageItems";
+import Payment from "../pages/Dashboard/Payment/Payment";
+//import AdminRoute from "./AdminRoute";
+//import PrivateRoute from "./PrivateRoute";
 
 
   export const router = createBrowserRouter([
@@ -50,17 +54,33 @@ import AllUsers from "../pages/Dashboard/AllUsers/AllUsers";
   },
   {
     path: 'dashboard',
-    element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
+    element: <Dashboard></Dashboard> ,//<PrivateRoute></PrivateRoute>,
     children: [
       {
         path: 'mycart',
         element: <MyCart></MyCart>
       },
       {
+        path: 'payment',
+        element: <Payment></Payment>
+      },
+
+      //Admin Routes Here
+      {
         path: 'allusers',
-        element: <AllUsers></AllUsers>
+        element: <AllUsers></AllUsers> //<AdminRoute></AdminRoute> 
+      },
+      {
+        path: 'addItem',
+        element: <AddItem></AddItem> //<AdminRoute></AdminRoute> 
+      },
+      {
+        path: 'manageItems',
+        element: <ManageItems></ManageItems> //<AdminRoute> </AdminRoute> 
       }
       
     ]
   }
 ]);
+{/* <PrivateRoute></PrivateRoute> */}
+{/* <AdminRoute></AdminRoute> */}

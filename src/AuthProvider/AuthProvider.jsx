@@ -1,7 +1,7 @@
 import { createContext, useState } from "react";
 import {
   GoogleAuthProvider,
-  createUserWithEmailAndPassword,
+  createUserWithEmailAndPassword,    
   getAuth,
   onAuthStateChanged,
   signInWithEmailAndPassword,
@@ -11,7 +11,6 @@ import {
 } from "firebase/auth";
 import { app } from "../firebase/firebase.config";
 import { useEffect } from "react";
-import { data } from "autoprefixer";
 import axios from "axios";
 
 export const AuthContext = createContext(null);
@@ -25,50 +24,50 @@ const AuthProvider = ({ children }) => {
 
   const createUser = (email, password) => {
     setLoading(true);
-    return createUserWithEmailAndPassword(auth, email, password)
-}
+    return createUserWithEmailAndPassword(auth, email, password);
+  };
 
   const signIn = (email, password) => {
     setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
 
-  const googleSignIn = () =>{
+  const googleSignIn = () => {
     setLoading(true);
     return signInWithPopup(auth, googleProvider);
-  }
+  };
 
   const logOut = () => {
     setLoading(true);
     return signOut(auth);
   };
 
-
-  
-
   const updateUserProfile = (name, photo) => {
     return updateProfile(auth.currentUser, {
-        displayName: name, photoURL: photo
+      displayName: name,
+      photoURL: photo,
     });
-}
+  };
 
-useEffect(() => {
-  const unsubscribe = onAuthStateChanged(auth, currentUser => {
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, currentUser => {
       setUser(currentUser);
-      console.log('current user', currentUser);      
-      //get and set token 
-      if(currentUser){
-        axios.post('http://localhost:5000/jwt ', {email: currentUser.email})
-        .then(data =>{
-          //console.log(data.data.token)
-          localStorage.setItem('access-token', data.data.token)
-        })
-      }
-      else{
-        localStorage.removeItem('access-token')
+      console.log("current user", currentUser);
+      //get and set token
+      if (currentUser) {
+        axios
+          .post("http://localhost:5000/jwt ", { email: currentUser.email })
+          .then(data => {
+            //console.log(data.data.token)
+            localStorage.setItem("access-token", data.data.token);
+            setLoading(false);
+          });
+      } 
+      else {
+        localStorage.removeItem("access-token");
         
       }
-      setLoading(false);
+      
     });
     return () => {
       return unsubscribe();
@@ -82,13 +81,11 @@ useEffect(() => {
     signIn,
     googleSignIn,
     logOut,
-    updateUserProfile
+    updateUserProfile,
   };
 
   return (
-    <AuthContext.Provider value={authInfo}>
-      {children}
-    </AuthContext.Provider>
+    <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
   );
 };
 export default AuthProvider;

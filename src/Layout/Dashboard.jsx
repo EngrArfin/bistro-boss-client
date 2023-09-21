@@ -40,8 +40,8 @@ const Dashboard = () => {
 
           {isAdmin ? <>
               <li><NavLink to="/dashboard/home"><FaHome></FaHome>Admin Home</NavLink></li>
-              <li><NavLink to="/dashboard/reservation"><FaUtensils></FaUtensils>Add Items</NavLink></li>
-              <li><NavLink to="/dashboard/history"><FaWallet></FaWallet>Manages Items</NavLink></li>
+              <li><NavLink to="/dashboard/addItem"><FaUtensils></FaUtensils>Add an Items</NavLink></li>
+              <li><NavLink to="/dashboard/manageItems"><FaWallet></FaWallet>Manages Items</NavLink></li>
               <li><NavLink to="/dashboard/history"><FaBook></FaBook>Manages Bookings</NavLink></li>
               <li><NavLink to="/dashboard/allusers"> <FaUsers></FaUsers> All Users</NavLink></li>
     
@@ -64,7 +64,8 @@ const Dashboard = () => {
           <div className="divider"></div>
           <li><NavLink to="/"><FaHome></FaHome> Home</NavLink></li>
           <li><NavLink to="/menu"><FaWallet></FaWallet> Our Menu</NavLink></li>
-          <li><NavLink to="/order/salad"> <FaWallet></FaWallet>Order Food</NavLink></li>
+          <li><NavLink to="/order/:category"> <FaWallet></FaWallet>Order Food</NavLink></li>
+          <li><NavLink to="/order/:category"> <FaWallet></FaWallet>Secret</NavLink></li>
         </ul>
       </div>
     </div>

@@ -43,8 +43,8 @@ const FoodCard = ({ item }) => {
         });
     } else {
       Swal.fire({
-        title: "lease login to enroll course?",
-        text: "You won't be able to revert this!",
+        title: "Login for order food?",
+        text: "without login You won't be able to to order food!",
         icon: "warning",
         showCancelButton: true,
         confirmButtonColor: "#3085d6",

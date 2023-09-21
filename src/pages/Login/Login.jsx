@@ -62,18 +62,18 @@ const Login = () => {
       <Helmet>
         <title>Bistro Boss | Home</title>
       </Helmet>
-      <div className="hero min-h-screen bg-base-200">
+      <div className="hero min-h-screen  bg-red-100">
         <div className="hero-content flex-col lg:flex-row">
           <div className=" w-1/2 mr-12">
             <img src={img} alt=""/>
           </div>
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-            <div className="card-body">
+            <div className="card-body bg-red-800">
               <h1 className="text-4xl font-bold">Login now!</h1>
               <form onSubmit={handelLogin}>
                 <div className="form-control">
                   <label className="label">
-                    <span className="label-text">Email</span>
+                    <span className="label-text text-white">Email</span>
                   </label>
                   <input
                     type="email"
@@ -84,7 +84,7 @@ const Login = () => {
                 </div>
                 <div className="form-control">
                   <label className="label">
-                    <span className="label-text">Password</span>
+                    <span className="label-text text-white">Password</span>
                   </label>
                   <input
                     type="password"
@@ -93,7 +93,7 @@ const Login = () => {
                     className="input input-bordered"
                   />
                   <label className="label">
-                    <a href="#" className="label-text-alt link link-hover">
+                    <a href="#" className="label-text-alt text-white link link-hover">
                       Forgot password?
                     </a>
                   </label>
@@ -113,7 +113,7 @@ const Login = () => {
                   />
 
                   {/* make button disabled  for capcha*/}
-                  <button className="btn btn-outline btn-xs mt-2"> Validate</button>
+                  <button className="btn btn-outline text-white btn-xs mt-2"> Validate</button>
                 </div>
                 <div className="form-control mt-6">
                   <input
@@ -126,9 +126,9 @@ const Login = () => {
               </form>
               <p>
                
-                <small>
+                <small className="text-white">
                   New Here?
-                  <Link to="/signup" className="text-orange-500 m-2 ">
+                  <Link to="/signup" className="text-sky-500 m-2 ">
                     Create an Account
                   </Link>
                 </small>
