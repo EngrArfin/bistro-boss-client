@@ -7,6 +7,7 @@ import useCart from "../../../hooks/useCart";
 
 
 
+
 //TODO: Provide Public key 
 const stripePromise = loadStripe(import.meta.env.VITE_Payment_Gateway_PK);
 
