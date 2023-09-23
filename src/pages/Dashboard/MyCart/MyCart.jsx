@@ -10,7 +10,8 @@ const MyCart = () => {
   console.log(cart);
   //how does reduce work
   const total = cart.reduce((sum, item) => item.price + sum, 0);
-  const handleDelete = (item) => {
+
+  const handleDelete = item => {
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -26,14 +27,14 @@ const MyCart = () => {
         })
           .then((res) => res.json())
           .then((data) => {
-            if (data.deletedCount > 0) {
+            if (data.deletedCount > 0 ) {
               refetch();
               Swal.fire("Deleted!", "Your file has been deleted.", "success");
             }
-          });
+          })
       }
-    });
-  };
+    })
+  }
 
   return (
     

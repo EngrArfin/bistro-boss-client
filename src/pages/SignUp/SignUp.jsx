@@ -1,30 +1,22 @@
 import { useContext } from "react";
 import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
-//import { AuthContext } from "../../providers/AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2'
 import SocialLogin from "../Shared/SocialLogin/SocialLogin";
-import { AuthContext } from "../../AuthProvider/AuthProvider";
 import img from "../../assets/dashboard/image-5.jpg";
-
-
+import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const SignUp = () => {
-
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const { createUser, updateUserProfile } = useContext(AuthContext);
     const navigate = useNavigate();
-
-    const location = useLocation();
-
-  const from = location.state?.from?.pathname || "/";
+    //const location = useLocation();
+    //const from = location.state?.from?.pathname || "/";
 
     const onSubmit = data => {
-
         createUser(data.email, data.password)
             .then(result => {
-
                 const loggedUser = result.user;
                 console.log(loggedUser);
 
@@ -53,9 +45,6 @@ const SignUp = () => {
                                     /* navigate(from, {replace: true}); */
                                 }
                             })
-
-
-
                     })
                     .catch(error => console.log(error))
             })

@@ -23,7 +23,7 @@ const NavBar = () => {
       <li><Link className="uppercase" to="/menu">Our Menu</Link></li>
       <li><Link className="uppercase" to="/order/salad">Order Food</Link></li>
       <li>
-        <Link className="uppercase" to="/secret">Secret</Link>
+        <Link className="uppercase" to="/userhome">Dashboard</Link>
       </li>
 
       <Link to='/dashboard/mycart' className="btn gap-2">

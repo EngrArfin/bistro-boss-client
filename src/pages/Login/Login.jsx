@@ -14,7 +14,7 @@ import { Helmet } from "react-helmet";
 import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 
 const Login = () => {
-  const [/* disabled, */ setDisable] = useState(true);
+  const [ disabled,  setDisable] = useState(true);
   const { signIn } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();

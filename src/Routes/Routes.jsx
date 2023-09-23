@@ -1,6 +1,5 @@
 import {
     createBrowserRouter,
-    RouterProvider,
     
   } from "react-router-dom";  
 import Main from "../Layout/Main";
@@ -11,7 +10,6 @@ import Login from "../pages/Login/Login";
 import Secret from "../pages/Secret/Secret";
 import Dashboard from "../Layout/Dashboard";
 import MyCart from "../pages/Dashboard/MyCart/MyCart";
-//import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import SignUp from "../pages/SignUp/SignUp";
 import AllUsers from "../pages/Dashboard/AllUsers/AllUsers";
 import AddItem from "../pages/Dashboard/AddItem/AddItem";
@@ -19,8 +17,8 @@ import ManageItems from "../pages/Dashboard/ManageItems/ManageItems";
 import Payment from "../pages/Dashboard/Payment/Payment";
 import UserHome from "../pages/Dashboard/UserHome/UserHome";
 import AdminHome from "../pages/Dashboard/AdminHome/AdminHome";
-//import AdminRoute from "./AdminRoute";
-//import PrivateRoute from "./PrivateRoute";
+import AdminRoute from "./AdminRoute";
+import PrivateRoute from "./PrivateRoute";
 
 
   export const router = createBrowserRouter([
@@ -41,22 +39,23 @@ import AdminHome from "../pages/Dashboard/AdminHome/AdminHome";
           element: <Order></Order>
         },
         {
-          path: '/secret',
-          element: <Secret></Secret>
-        },
-        {
           path: '/login',
           element: <Login></Login>
         },
         {
           path: '/signup',
           element: <SignUp></SignUp>
+        },
+        {
+          path: '/secret',
+          element: <PrivateRoute><Secret></Secret></PrivateRoute>
         }
+        
     ]
   },
   {
     path: 'dashboard',
-    element: <Dashboard></Dashboard> ,//<PrivateRoute></PrivateRoute>,
+    element: <Dashboard></Dashboard>,//<PrivateRoute></PrivateRoute>,
     children: [
       {
         path: 'userhome',
@@ -75,23 +74,20 @@ import AdminHome from "../pages/Dashboard/AdminHome/AdminHome";
       {
         path: 'adminhome',
         element: <AdminHome></AdminHome>
-
       },
       {
         path: 'allusers',
-        element: <AllUsers></AllUsers> //<AdminRoute></AdminRoute> 
+        element: <AllUsers></AllUsers>//<AdminRoute></AdminRoute> 
       },
       {
         path: 'addItem',
-        element: <AddItem></AddItem> //<AdminRoute></AdminRoute> 
+        element:<AdminRoute></AdminRoute> 
       },
       {
         path: 'manageItems',
-        element: <ManageItems></ManageItems> //<AdminRoute> </AdminRoute> 
+        element: <AddItem></AddItem> //<AdminRoute><ManageItems></ManageItems></AdminRoute> 
       }
       
     ]
   }
 ]);
-{/* <PrivateRoute></PrivateRoute> */}
-{/* <AdminRoute></AdminRoute> */}
