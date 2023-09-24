@@ -13,12 +13,12 @@ import MyCart from "../pages/Dashboard/MyCart/MyCart";
 import SignUp from "../pages/SignUp/SignUp";
 import AllUsers from "../pages/Dashboard/AllUsers/AllUsers";
 import AddItem from "../pages/Dashboard/AddItem/AddItem";
-import ManageItems from "../pages/Dashboard/ManageItems/ManageItems";
 import Payment from "../pages/Dashboard/Payment/Payment";
 import UserHome from "../pages/Dashboard/UserHome/UserHome";
 import AdminHome from "../pages/Dashboard/AdminHome/AdminHome";
-import AdminRoute from "./AdminRoute";
+//import AdminRoute from "./AdminRoute";
 import PrivateRoute from "./PrivateRoute";
+import ManageItems from "../pages/Dashboard/ManageItems/ManageItems";
 
 
   export const router = createBrowserRouter([
@@ -55,7 +55,7 @@ import PrivateRoute from "./PrivateRoute";
   },
   {
     path: 'dashboard',
-    element: <Dashboard></Dashboard>,//<PrivateRoute></PrivateRoute>,
+    element: <Dashboard></Dashboard>, // <PrivateRoute></PrivateRoute>,
     children: [
       {
         path: 'userhome',
@@ -77,17 +77,17 @@ import PrivateRoute from "./PrivateRoute";
       },
       {
         path: 'allusers',
-        element: <AllUsers></AllUsers>//<AdminRoute></AdminRoute> 
+        element: <AllUsers></AllUsers> //<AdminRoute></AdminRoute> 
       },
       {
         path: 'addItem',
-        element:<AdminRoute></AdminRoute> 
+        element: <AddItem></AddItem> //<AdminRoute></AdminRoute> 
+        
       },
       {
         path: 'manageItems',
-        element: <AddItem></AddItem> //<AdminRoute><ManageItems></ManageItems></AdminRoute> 
+        element: <ManageItems></ManageItems> //<AdminRoute></AdminRoute> 
       }
-      
     ]
   }
 ]);
