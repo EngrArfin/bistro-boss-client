@@ -4,12 +4,14 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../../AuthProvider/AuthProvider";
 import { FaShoppingCart } from 'react-icons/fa';
 import useCart from "../../../hooks/useCart";
+import useAdmin from "../../../hooks/useAdmin";
 
 const NavBar = () => {
   const { user, logOut } = useContext(AuthContext);
+  const [isAdmin] = useAdmin();
   const [cart] = useCart();
 
-  const handelLogOut = () => {
+  const handleLogOut = () => {
     logOut()
       .then(() => {})
       .catch((error) => console.error(error));
@@ -17,38 +19,40 @@ const NavBar = () => {
 
   const navOptions = (
     <>
-      <li>
-        <Link className="uppercase" to="/">Home</Link>
-      </li>
+      <li><Link className="uppercase" to="/">Home</Link></li>
       <li><Link className="uppercase" to="/menu">Our Menu</Link></li>
       <li><Link className="uppercase" to="/order/salad">Order Food</Link></li>
-      <li>
-        <Link className="uppercase" to="/userhome">Dashboard</Link>
-      </li>
-      
+      {/* {
+        isAdmin ? <li><Link className="uppercase" to= "adminhome" >Dashboard</Link></li> :
+        <li><Link className="uppercase" to= "userhome" >Dashboard</Link></li>
+      } */}
+
+      {
+            user && isAdmin && <li><Link to="/dashboard/adminhome" className="uppercase">Dashboard</Link></li>
+        }
+        {
+            user && !isAdmin && <li><Link to="/dashboard/userhome" className="uppercase">Dashboard</Link></li>
+        }
+       
       <Link to='/dashboard/mycart' className="btn gap-2">
         <FaShoppingCart></FaShoppingCart>
-        <div className="badge badge-secondary">+{cart?.length || 0 }</div>
+        {cart?.length || 0 }
+        <div className="badge badge-secondary">+</div>
       </Link>
 
-      {user ? (
-        <>
-          <button onClick={handelLogOut} className="btn btn-ghost uppercase">
-            LogOut
-          </button>
-        </>
-      ) : (
-        <>
-          <li>
-            <Link className="uppercase" to="/login">Login</Link>
-          </li>
-        </>
-      )}
+      {user ? <>
+                {/* <span>{user?.displayName}</span> */}
+                <button onClick={handleLogOut} className="btn btn-ghost uppercase" >LogOut</button>
+            </> : <>
+                <li><Link to="/login" className="uppercase">Login</Link></li>
+            </>
+            }
+      
     </>
   );
   return (
     <>
-      <div className="navbar max-w-7xl fixed z-10 bg-opacity-30 bg-black text-white">
+      <div className="navbar max-w-8xl fixed z-10 bg-opacity-30 bg-black text-white">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -74,7 +78,7 @@ const NavBar = () => {
               {navOptions}
             </ul>
           </div>
-          <a className="btn btn-ghost uppercase  text-xl">Food Restaurants</a>
+          <a className="btn btn-ghost uppercase  text-xl">Sa Food Restaurants</a>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{navOptions}</ul>

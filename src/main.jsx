@@ -11,7 +11,6 @@ import {
   QueryClient,
   QueryClientProvider,
 } from "@tanstack/react-query";
-
 const queryClient = new QueryClient();
 
 ReactDOM.createRoot(document.getElementById("root")).render(
@@ -19,7 +18,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <AuthProvider> 
       <HelmetProvider>
         <QueryClientProvider client={queryClient}>
-          <div className="max-w-7xl mx-auto	">
+          <div className="max-w-8xl mx-auto	">
             <RouterProvider router={router} />
           </div>
         </QueryClientProvider>

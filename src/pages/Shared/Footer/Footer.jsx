@@ -9,11 +9,11 @@ const Footer = () => {
       
       {/* Footer Here-1 */}
 
-      <footer className="footer p-3 bg-sky-200 mt-3 ">
+      <footer className="footer p-3 bg-red-50 mt-3 ">
           <div>
             <img src={photo1} alt="" className="w-10 rounded-full" />
             <h2 className="uppercase text-red-800">Bistro Boss Restaurants</h2>
-            <p>Bistro Boss Restaurants service star 2012</p>
+            <p>SA FOOD RESTAURENTS service star 2012</p>
             <p>Opening Time:</p>
             <p>Mon-Thurs 10:00 AM - :9:00 Pm</p>
             <p>Fri 09:00 AM - 11:59 AM</p>

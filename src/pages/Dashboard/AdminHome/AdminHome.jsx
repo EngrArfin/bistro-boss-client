@@ -82,7 +82,7 @@ const AdminHome = () => {
 
   return (
     <div className="w-full m-8">
-      <h2 className="text-3xl">Hi, {user.display}  </h2>
+      <h2 className="text-3xl">Hi, Welcome Admin Page {user.display}  </h2>
       <div className="stats shadow">
         <div className="stat">
           <div className="stat-figure text-secondary">

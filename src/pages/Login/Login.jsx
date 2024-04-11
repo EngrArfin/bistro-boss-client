@@ -14,7 +14,7 @@ import { Helmet } from "react-helmet";
 import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 
 const Login = () => {
-  const [ disabled,  setDisable] = useState(true);
+  const [/*  disabled, */ setDisable] = useState(true);
   const { signIn } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
@@ -117,7 +117,7 @@ const Login = () => {
                 </div>
                 <div className="form-control mt-6">
                   <input
-                    disabled={ false } // disabled 
+                    disabled={false} // disabled 
                     className="text-white bg-gradient-to-r from-cyan-400 via-cyan-900 to-cyan-400 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
                     type="submit"
                     value="Login"
